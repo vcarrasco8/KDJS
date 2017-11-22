@@ -34,30 +34,22 @@
 				var nb1 = parseInt($scope.nombreUn);
 				var nb2 = parseInt($scope.nombreDeux);
 				var res = null;
-				switch($scope.operateur){
+				switch($scope.data.operateur){
 					case "+" : 
 						res = nb1 + nb2;
+						break;
+					case "-" : 
+						res = nb1 - nb2;
+						break;
+					case "*" : 
+						res = nb1 * nb2;
+						break;
+					case "/" : 
+						res = nb1 / nb2;
 						break;
 				}
 				return res;
 			};
-			/*$scope.display(function(){
-				switch(operateur){
-					case "+" :
-						operateur = "+";
-						break;
-					case "-" :
-						operateur = "-";
-						break;
-					case "x" :
-						operateur = "*";
-						break;
-					case "/" :
-						operateur = "/";
-						break;
-				}
-				return operateur;
-			});*/
 		});
 	</script>
 	</body>
