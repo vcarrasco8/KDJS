@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>My Plugin</title>
+		<link rel="stylesheet" type="text/css" href="jQuery/jquery-ui-1.12.1.custom/jquery-ui.css">
+		<script src="jQuery/jquery-3.2.1.min.js"></script>
+		<script src="jQuery/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+	</head>
+	<script type="text/javascript">
+		(function($){
+			$.fn.grossirText = function(){
+				this.each(function(){
+					$(this).hover(function(){
+						$(this).css("font-size", "200%");
+					},
+					function(){
+						$(this).css("font-size", "100%");
+					});
+				});
+				return this;
+			};
+		})(jQuery);
+		$(document).ready(function(){
+			$('#zone').grossirText();	
+		});
+	</script>
+	<body>
+		<h1>Survole le texte !</h1>
+		<span id="zone">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum delectus laborum consequatur nihil tenetur distinctio velit voluptate blanditiis mollitia. Quidem necessitatibus odit voluptas, nemo laboriosam esse a repellat, eligendi cum.
+		</span>	
+	</body>
+</html>

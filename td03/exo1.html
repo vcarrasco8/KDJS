@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Mon jQuery</title>
+		<link rel="stylesheet" type="text/css" href="jQuery/jquery-ui-1.12.1.custom/jquery-ui.css">
+
+		<style>
+			#draggable { 
+				width: 80px; 
+				height: 80px; 
+				padding: 0.5em; 
+				background-color: red;
+			}
+			#zone{
+				border: solid 2px black;
+				height: 120px;
+			}
+			#sortable { list-style-type: none; margin: 0; padding: 0; width: 40%; }
+ 			#sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+  			#sortable li span { position: absolute; margin-left: -1.3em; }
+
+		</style>
+		<script src="jQuery/jquery-3.2.1.min.js"></script>
+		<script src="jQuery/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+	</head> 
+	<script>
+	$(function(){
+		$( "#draggable" ).draggable({
+			containment: "parent",
+			drag: function(event, ui){
+				$('#pos').empty();
+				$('#pos').append('<p> AXE X : ' + ui.position.left + '</p>');
+				$('#pos').append('<p> AXE Y : ' + ui.position.top + '</p>');
+			}
+		});
+		$("#sortable").sortable();
+   		$("#sortable").disableSelection();
+   		$("#ordre").click(function(){
+   			$('#ordrePoke').empty();
+   			$('li').each(function(id){	
+   				$('#ordrePoke').append('<p>' + $(this).text() + ' → n°' + id + '</p>');
+   				console.log($(this).text() + id);
+   			});
+   		});
+	});
+
+	</script>
+
+	<body>
+		<div id="zone">
+			<div id="draggable" class="ui-widget-content">
+			</div>
+		</div>
+		<div id="pos">
+		</div>
+
+		<ul id="sortable">
+			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Bulbizarre</li>
+			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Herbizarre</li>
+			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Florizarre</li>
+			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Salamèche</li>
+			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Reptincel</li>
+			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Dracaufeu</li>	
+		</ul>
+		<button id="ordre">Afficher l'ordre</button>
+		<br>
+		<div id="ordrePoke"></div>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+ 
+    <meta charset="utf-8" />
+ 
+    <title>Kit de Survie JS</title>
+    <meta name="description" content="">
+ 
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+    <style>
+    	body{ font-family: 'Quicksand', sans-serif; }
+
+    	
+	</style>
+
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		// Ecrire les scripts ici
+            $('input:button[name=afficheUn]').click(function(){
+                $('div#content1').append("<img src='troll.jpg' width='140px' alt='phototroll' />");
+                $('div#content1').load('http://www.labri.fr/perso/pbiasutt/KDJS/TD02/exo1.php #conteneur1', function(){ alert('Le fichier est correctement chargé'); });
+            });
+            $('input:button[name=afficheDeux]').click(function(){
+                $('div#content2').append("<img src='troll.jpg' width='140px' alt='phototroll' />");
+                $('div#content2').load('http://www.labri.fr/perso/pbiasutt/KDJS/TD02/exo1.php #conteneur2', function(){ alert('Le fichier est correctement chargé'); });
+            });
+    	});
+   	</script>
+</head>
+<body>
+    <!-- Code HTML -->
+    <div id="content">
+
+    </div> 
+    <input type="button" name="afficheUn" value="Affiche le premier div">
+    <input type="button" name="afficheDeux" value="Affiche le second div">
+    <div id="content1"></div>
+    <div id="content2"></div>
+</body>
+ 
+</html>

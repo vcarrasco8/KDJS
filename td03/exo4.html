@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>AngularJS</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<input type="text" ng-model="nombreUn">
+			<select ng-model="data.operateur">
+				<option ng-repeat="ope in data.operateurs" value="{{ope.id}}">{{ope.name}}</option>
+			</select>
+			<input type="text" ng-model="nombreDeux">
+			<br>
+
+			
+			{{ name }}
+			{{ nombreUn }} {{ data.operateur }} {{ nombreDeux }} = {{ res() }}
+ 		</div>
+ 		<script>
+		var app = angular.module('myApp', []);
+
+		app.controller("myCtrl", function($scope){
+			$scope.data = {
+				operateur: null,
+				operateurs: [
+				  {id: '+', name: '+'},
+			      {id: '-', name: '-'},
+			      {id: '*', name: '*'},
+			      {id: '/', name: '/'}
+			    ]
+			};
+			$scope.res = function(){
+				var nb1 = parseInt($scope.nombreUn);
+				var nb2 = parseInt($scope.nombreDeux);
+				var res = null;
+				switch($scope.operateur){
+					case "+" : 
+						res = nb1 + nb2;
+						break;
+				}
+				return res;
+			};
+			/*$scope.display(function(){
+				switch(operateur){
+					case "+" :
+						operateur = "+";
+						break;
+					case "-" :
+						operateur = "-";
+						break;
+					case "x" :
+						operateur = "*";
+						break;
+					case "/" :
+						operateur = "/";
+						break;
+				}
+				return operateur;
+			});*/
+		});
+	</script>
+	</body>
+	
+</html>

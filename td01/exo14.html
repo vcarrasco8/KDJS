@@ -1,0 +1,70 @@
+<!-- KIT DE SURVIE JS - IUT INFORMATIQUE BORDEAUX -->
+<!DOCTYPE html>
+<head>
+ 
+    <meta charset="utf-8" />
+ 
+    <title>Exercice 14</title>
+    <meta name="description" content="Description de la page">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+    <style>
+    	body{ font-family: 'Quicksand', sans-serif; }
+	</style>
+
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		// Ecrire les scripts ici
+            $('form').submit(function(e){
+                function Utilisateur(nom, prenom, age, genre, descritpion){
+                    this.nom = nom;
+                    this.prenom = prenom;
+                    this.age = age;
+                    this.genre = genre;
+                    this.description = description;
+                    this.presenter = function(){
+                        console.log("Je m'appelle " + this.prenom + " " + this.nom + " et j'ai " + this.age + " ans (" + this.genre + "). " + this.description);
+                    };
+                }
+
+                console.log($('input:text[name=nom]').val());
+                var nom = $('input:text[name=nom]').val();
+                console.log($('input:text[name=prenom]').val());
+                var prenom = $('input:text[name=prenom]').val();
+                console.log($('input[name=age]').val());
+                var age = $('input[name=age]').val();
+                console.log($('select[name=genre]').val());
+                var genre = $('select[name=genre]').val();
+                console.log($('input[name=description]').val());
+                var description = $('input[name=description]').val();
+                
+                var util = new Utilisateur(nom, prenom, age, genre, description); 
+                util.presenter();
+                e.preventDefault();
+            });
+            //return false;
+            //pour éviter le rechargement car action lancée quand on submit le form (qui fait reload la page)
+    	});
+   	</script>
+</head>
+<body>
+	<!-- Formulaire ici -->
+    <form name="formulaire">
+        <label>Nom :</label>
+        <input type="text" name="nom" placeholder="Nom..."><br />
+        <label>Prénom :</label>
+        <input type="text" name="prenom" placeholder="Prénom..."><br />
+        <label>Age :</label>
+        <input type="number" name="age" placeholder="Age..."><br />
+        <label>Genre :</label>
+        <select name="genre">
+            <option value="Homme">H</option>
+            <option value="Femme">F</option>
+        </select><br />
+        <label>Description :</label>
+        <input type="textarea" name="description" placeholder="Description..."><br />
+        <input type="submit" name="envoyer" value="Envoyer">
+    </form>
+</body>
+</html>
